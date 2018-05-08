@@ -32,9 +32,7 @@ class App extends Component {
   handleSearchSubmit = event => {
     event.preventDefault()
     if (this.state.searchQuery.length) {
-      this.buildPrimoQuery(() => {
-        window.document.forms['primoSearchForm'].submit()
-      })
+      this.buildPrimoQuery(window.document.forms['primoSearchForm'].submit())
     }
   }
 
