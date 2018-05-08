@@ -1,0 +1,33 @@
+{
+  "name": "react-ual-primo-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prettier.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p",
+    "watch": "webpack -w --mode=development && serve build",
+    "preview": "serve build"
+  },
+  "keywords": [],
+  "author": "Christopher Green <cg433n@email.arizona.edu>",
+  "license": "Copyright (C) The Arizona Board of Regents on Behalf of the University of Arizona - All Rights Reserved",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "serve": "^6.5.6",
+    "styled-jsx": "^2.2.6",
+    "webpack": "^4.8.0",
+    "webpack-cli": "^2.1.3"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
