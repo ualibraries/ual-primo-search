@@ -1,5 +1,5 @@
 {
-  "name": "react-ual-primo-search",
+  "name": "ual-primo-search",
   "version": "1.0.0",
   "description": "",
   "main": "prettier.config.js",
@@ -11,7 +11,8 @@
   },
   "keywords": [],
   "author": "Christopher Green <cg433n@email.arizona.edu>",
-  "license": "Copyright (C) The Arizona Board of Regents on Behalf of the University of Arizona - All Rights Reserved",
+  "license":
+    "Copyright (C) The Arizona Board of Regents on Behalf of the University of Arizona - All Rights Reserved",
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -29,5 +30,6 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
-  }
+  },
+  "browserslist": ["> 1%", "last 5 versions", "IE 11", "IE 10"]
 }

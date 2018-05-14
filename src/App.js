@@ -151,7 +151,7 @@ class App extends Component {
             }
           }
 
-          .title {
+          h2.title {
             margin: 0 0 1rem 0;
             color: #ffffff;
             font-weight: normal;
@@ -182,6 +182,7 @@ class App extends Component {
 
           .query-type {
             width: 100%;
+            height: auto;
             padding: 0.75rem 1.5rem 0.75rem 0.75rem;
             border: 0;
             border-radius: 0;
@@ -204,6 +205,7 @@ class App extends Component {
           .query-text {
             box-sizing: border-box;
             width: 100%;
+            height: auto;
             max-width: 100%;
             display: block;
             padding: 0.75rem;
@@ -231,12 +233,15 @@ class App extends Component {
           }
 
           .query-submit:hover {
+            background-color: #ffffff;
             cursor: pointer;
           }
 
           .button {
             display: inline-block;
-            padding: 0.75rem 1rem;
+            margin: 0;
+            padding: 0.5rem 1rem;
+            border: 0;
             background-color: #394c69;
             color: #ffffff;
             text-decoration: none;
@@ -265,6 +270,7 @@ class App extends Component {
           @media (min-width: 540px) {
             .other-search-col {
               margin-right: 1rem;
+              margin-bottom: 0;
             }
           }
 
