@@ -2,12 +2,11 @@
   "name": "ual-primo-search",
   "version": "1.0.0",
   "description": "",
-  "main": "prettier.config.js",
+  "main": "dist/ual-primo-search.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "serve test",
     "build": "webpack -p",
-    "watch": "webpack -w --mode=development && serve build",
-    "preview": "serve build"
+    "watch": "webpack -w --mode=development"
   },
   "keywords": [],
   "author": "Christopher Green <cg433n@email.arizona.edu>",

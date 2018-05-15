@@ -2,14 +2,14 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    index: './src/index.js',
-    polyfill: './src/polyfill.js'
+    'ual-primo-search': './src/ual-primo-search.js',
+    'react-polyfill': './src/react-polyfill.js'
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
     publicPath: '',
-    library: 'react-ual-primo-search',
+    library: 'ual-primo-search',
     libraryTarget: 'umd'
   },
   module: {
