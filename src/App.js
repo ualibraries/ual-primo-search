@@ -39,7 +39,7 @@ class App extends Component {
 
   // Track an event in Google analytics
   trackEvent = (category, action, label) => {
-    if (ga != null) {
+    if (typeof ga !== 'undefined') {
       ga('send', 'event', category, action, label)
     }
   }
