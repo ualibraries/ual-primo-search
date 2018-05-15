@@ -32,7 +32,15 @@ class App extends Component {
   handleSearchSubmit = event => {
     event.preventDefault()
     if (this.state.searchQuery.length) {
+      this.trackEvent('Library search', 'search', this.state.searchQuery)
       this.buildPrimoQuery(window.document.forms['primoSearchForm'].submit())
+    }
+  }
+
+  // Track an event in Google analytics
+  trackEvent = (category, action, label) => {
+    if (ga != null) {
+      ga('send', 'event', category, action, label)
     }
   }
 
@@ -109,6 +117,11 @@ class App extends Component {
                 className="button"
                 role="button"
                 id="ual-primo-search-see-all-databases"
+                onClick={this.trackEvent(
+                  'Library search',
+                  'databases',
+                  'See all databases'
+                )}
               >
                 See all databases
               </a>
@@ -122,6 +135,11 @@ class App extends Component {
                 className="button"
                 role="button"
                 id="ual-primo-search-find-a-journal"
+                onClick={this.trackEvent(
+                  'Library search',
+                  'journal',
+                  'Find a journal'
+                )}
               >
                 Find a journal
               </a>
@@ -135,6 +153,11 @@ class App extends Component {
                 className="button button-link"
                 role="button"
                 id="ual-primo-search-advanced-search"
+                onClick={this.trackEvent(
+                  'Library search',
+                  'advanced',
+                  'Advanced search'
+                )}
               >
                 Advanced search
               </a>
