@@ -52,7 +52,7 @@ class App extends Component {
               <div className="field">
                 <select
                   name="type"
-                  id=""
+                  id="ual-primo-search-type"
                   onChange={this.handleSearchTypeChange}
                   className="query-type"
                 >
@@ -69,7 +69,7 @@ class App extends Component {
                 <input
                   type="text"
                   name=""
-                  id=""
+                  id="ual-primo-search-text"
                   value={this.state.searchQuery}
                   onChange={this.handleSearchQueryChange}
                   className="query-text"
@@ -82,6 +82,7 @@ class App extends Component {
                   onClick={this.handleSearchSubmit}
                   className="query-submit"
                   title="Search library resources"
+                  id="ual-primo-search-submit"
                 />
               </div>
             </div>
@@ -107,6 +108,7 @@ class App extends Component {
                 href="https://databases.library.arizona.edu"
                 className="button"
                 role="button"
+                id="ual-primo-search-see-all-databases"
               >
                 See all databases
               </a>
@@ -119,6 +121,7 @@ class App extends Component {
                 }/primo-explore/jsearch?vid=01UA&lang=en_US`}
                 className="button"
                 role="button"
+                id="ual-primo-search-find-a-journal"
               >
                 Find a journal
               </a>
@@ -131,6 +134,7 @@ class App extends Component {
                 }/primo-explore/search?sortby=rank&vid=01UA&lang=en_US&pcAvailability=true`}
                 className="button button-link"
                 role="button"
+                id="ual-primo-search-advanced-search"
               >
                 Advanced search
               </a>
