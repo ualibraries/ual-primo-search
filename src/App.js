@@ -149,7 +149,7 @@ class App extends Component {
               <a
                 href={`${
                   config.domain
-                }/primo-explore/search?sortby=rank&vid=01UA&lang=en_US&pcAvailability=true&mode=advanced`}
+                }/primo-explore/search?sortby=rank&vid=01UA&lang=en_US&mode=advanced`}
                 className="button button-link"
                 role="button"
                 id="ual-primo-search-advanced-search"
