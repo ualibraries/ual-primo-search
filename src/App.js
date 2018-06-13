@@ -15,6 +15,7 @@ class App extends Component {
       },
       cb != null ? cb() : null
     )
+    console.log(this.state.searchType)
   }
 
   handleSearchTypeChange = event => {
@@ -101,6 +102,9 @@ class App extends Component {
             />
 
             <input name="vid" value={config.vid} type="hidden" />
+            <input name="tab" value="default_tab" type="hidden" />
+            <input name="search_scope" value="Everything" type="hidden" />
+            <input name="lang" value="en_US" type="hidden" />
 
             <input
               name="query"

@@ -4,7 +4,6 @@
   "description": "",
   "main": "dist/ual-primo-search.js",
   "scripts": {
-    "test": "serve test",
     "build": "webpack -p",
     "watch": "webpack -w --mode=development"
   },
