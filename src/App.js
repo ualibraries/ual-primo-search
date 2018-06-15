@@ -1,21 +1,45 @@
 import React, { Component } from 'react'
 import config from '../app.config'
+import queryString from 'query-string'
 
 class App extends Component {
   state = {
     searchType: 'any,contains',
     searchQuery: '',
-    primoQuery: ''
+    params: ''
+  }
+
+  searchParams = () => {
+    let params = {
+      query: `${this.state.searchType},${this.state.searchQuery}`,
+      search_scope: 'Everything',
+      tab: 'default_tab',
+      lang: 'en_US',
+      institution: config.institution,
+      vid: config.vid,
+    }
+
+    if (this.state.searchType !== 'any,contains') {
+      params['mode'] = 'advanced'
+    }
+
+    if (this.state.searchType === 'creator,contains') {
+      params.query += ',AND'
+    }
+
+    return queryString.stringify(params, {
+      sort: false,
+      encode: false
+    })
   }
 
   buildPrimoQuery = cb => {
     this.setState(
       {
-        primoQuery: `${this.state.searchType},${this.state.searchQuery}`
+        params: this.searchParams()
       },
       cb != null ? cb() : null
     )
-    console.log(this.state.searchType)
   }
 
   handleSearchTypeChange = event => {
@@ -34,7 +58,10 @@ class App extends Component {
     event.preventDefault()
     if (this.state.searchQuery.length) {
       this.trackEvent('Library search', 'search', this.state.searchQuery)
-      this.buildPrimoQuery(window.document.forms['primoSearchForm'].submit())
+      this.buildPrimoQuery(() => {
+        // TODO this breaks browser history 
+        window.location.href = `${config.domain}/primo-explore/search/?${this.state.params}`
+      })
     }
   }
 
@@ -48,6 +75,9 @@ class App extends Component {
   render() {
     return (
       <div>
+        <pre>
+          {this.state.params}
+        </pre>
         <div className="wrapper">
           <h2 className="title">Library search</h2>
 
@@ -55,7 +85,7 @@ class App extends Component {
             name="primoSearchForm"
             role="search"
             method="get"
-            action={`${config.domain}/primo_library/libweb/action/dlSearch.do`}
+            action={`${config.domain}/primo-explore/search/?${this.state.params}`}
           >
             <div className="fields">
               <div className="field">
@@ -95,23 +125,6 @@ class App extends Component {
                 />
               </div>
             </div>
-            <input
-              name="institution"
-              value={config.institution}
-              type="hidden"
-            />
-
-            <input name="vid" value={config.vid} type="hidden" />
-            <input name="tab" value="default_tab" type="hidden" />
-            <input name="search_scope" value="Everything" type="hidden" />
-            <input name="lang" value="en_US" type="hidden" />
-
-            <input
-              name="query"
-              id="primoQuery"
-              type="hidden"
-              value={this.state.primoQuery}
-            />
           </form>
 
           <div className="other-search">
