@@ -75,9 +75,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <pre>
-          {this.state.params}
-        </pre>
         <div className="wrapper">
           <h2 className="title">Library search</h2>
 
