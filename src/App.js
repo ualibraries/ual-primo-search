@@ -4,7 +4,7 @@ import queryString from 'query-string'
 
 class App extends Component {
   state = {
-    searchType: 'any,contains',
+    searchType: 'any,contains', // default search type: Keyword
     searchQuery: '',
     params: ''
   }
@@ -19,12 +19,26 @@ class App extends Component {
       vid: config.vid,
     }
 
-    if (this.state.searchType !== 'any,contains') {
-      params['mode'] = 'advanced'
-    }
-
-    if (this.state.searchType === 'creator,contains') {
-      params.query += ',AND'
+    // Change the parameters based on the users choice of:
+    // Keyword, Title, Author, Call number
+    switch (this.state.searchType) {
+      // Title
+      case 'title,contains':
+        params['mode'] = 'advanced'
+        break
+      // Author
+      case 'creator,contains':
+        // Adding the `,AND` prevents Primo from discarding the text after a 
+        // comma in a search string containing a comma
+        params.query += ',AND'
+        params['mode'] = 'advanced'
+        break
+      // Call number
+      case 'lsr01,contains':
+        params['mode'] = 'advanced'
+      // Keyword (or anything else)
+      default:
+        break
     }
 
     return queryString.stringify(params, {
