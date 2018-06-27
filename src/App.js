@@ -69,12 +69,13 @@ class App extends Component {
   }
 
   handleSearchSubmit = event => {
-    if (!this.state.searchQuery.length) {
-      // Prevent the search link from working if the query is empty
-      event.preventDefault()
-    }
+    event.preventDefault()
+    if (this.state.searchQuery.length) {
+      window.location.href =
+        `${config.domain}/primo-explore/search?${this.state.params}`
 
-    this.trackEvent('Library search', 'search', this.state.searchQuery)
+      this.trackEvent('Library search', 'search', this.state.searchQuery)
+    }
   }
 
   // Track an event in Google analytics
@@ -94,6 +95,7 @@ class App extends Component {
             name="primoSearchForm"
             role="search"
             method="get"
+            onSubmit={this.handleSearchSubmit}
           >
             <div className="fields">
               <div className="field">
@@ -101,10 +103,9 @@ class App extends Component {
                   id="ual-primo-search-type"
                   onChange={this.handleSearchTypeChange}
                   className="query-type"
+                  value={this.state.searchType}
                 >
-                  <option value="any,contains" selected="selected">
-                    Keyword
-                  </option>
+                  <option value="any,contains">Keyword</option>
                   <option value="title,contains">Title</option>
                   <option value="creator,contains">Author</option>
                   <option value="lsr01,contains">Call number</option>
@@ -121,15 +122,13 @@ class App extends Component {
                   placeholder="Search for books, articles, almost anything..."
                 />
 
-                <a
-                  onClick={this.handleSearchSubmit}
+                <input
+                  type="submit"
+                  value="Search"
                   className="query-submit"
+                  title="Search library resources"
                   id="ual-primo-search-submit"
-                  target="_blank"
-                  href={`${config.domain}/primo-explore/search/?${this.state.params}`}
-                >
-                  Search library resources 
-                </a>
+                />
               </div>
             </div>
           </form>
