@@ -36,6 +36,7 @@ class App extends Component {
       // Call number
       case 'lsr01,contains':
         params['mode'] = 'advanced'
+        break
       // Keyword (or anything else)
       default:
         break
@@ -71,10 +72,10 @@ class App extends Component {
   handleSearchSubmit = event => {
     event.preventDefault()
     if (this.state.searchQuery.length) {
+      this.trackEvent('Library search', 'search', this.state.searchQuery)
+
       window.location.href =
         `${config.domain}/primo-explore/search?${this.state.params}`
-
-      this.trackEvent('Library search', 'search', this.state.searchQuery)
     }
   }
 
