@@ -19,6 +19,9 @@ class App extends Component {
       vid: config.vid,
     }
 
+    let queryString = ''
+    let numArgs = 0
+
     // Change the parameters based on the users choice of:
     // Keyword, Title, Author, Call number
     switch (this.state.searchType) {
@@ -42,10 +45,17 @@ class App extends Component {
         break
     }
 
-    return queryString.stringify(params, {
-      sort: false,
-      encode: false
-    })
+    for (let element in params) {
+      queryString += `${element}=${params[element]}`
+      numArgs++
+
+      // Don't add '&' after the last parameter
+      if (numArgs < Object.keys(params).length) {
+        queryString += '&'
+      }
+    }
+
+    return queryString
   }
 
   buildPrimoQuery = cb => {
