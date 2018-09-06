@@ -269,33 +269,29 @@ class App extends Component {
             height: auto;
             max-width: 100%;
             display: block;
-            padding: 0.75rem;
+            padding: .75rem 5rem .75rem .75rem;
             border: 0;
             border-bottom: 1px solid #fff;
           }
 
           .query-submit {
             position: absolute;
-            right: 0.5rem;
+            right: 0.3rem;
             top: 50%;
             transform: translateY(-50%);
-            width: 1.5rem;
-            height: 1.25rem;
+            height: 2rem;
             display: block;
             border: 0;
             outline: none;
-            padding: 0;
-            background-color: #ffffff;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.88 21.87"><title>search-icon</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Page-1"><g id="Artboard-Copy"><g id="Group-11"><g id="Group-2"><path id="search---anticon" d="M21.63,20.36a.93.93,0,0,1,0,1.27.92.92,0,0,1-.63.24.82.82,0,0,1-.61-.24l-5-5a9.19,9.19,0,0,1-6,2.15A9,9,0,0,1,2.75,16,9,9,0,0,1,0,9.38,9,9,0,0,1,2.75,2.75,9,9,0,0,1,9.38,0,9,9,0,0,1,16,2.75a9,9,0,0,1,2.75,6.63,9.19,9.19,0,0,1-2.15,6Zm-9.3-3.95a7.82,7.82,0,0,0,4.08-4.08A7.54,7.54,0,0,0,17,9.38a7.55,7.55,0,0,0-.58-3,7.82,7.82,0,0,0-4.08-4.08,7.54,7.54,0,0,0-2.95-.58,7.55,7.55,0,0,0-3,.58A7.7,7.7,0,0,0,4,4,7.29,7.29,0,0,0,2.37,6.42a7.23,7.23,0,0,0-.61,3,7.22,7.22,0,0,0,.61,2.95A7.29,7.29,0,0,0,4,14.76a7.7,7.7,0,0,0,2.43,1.65,7.55,7.55,0,0,0,3,.58A7.54,7.54,0,0,0,12.33,16.41Z" fill="%23227db2"/></g></g></g></g></g></g></svg>');
-            background-repeat: no-repeat;
-            background-position: center center;
-            color: rgba(255, 0, 0, 0);
-            text-indent: -1000px;
+            padding: 0 .75rem;
+            background-color: #ab0520;
+            color: #ffffff;
+            transition: background .2s ease;
           }
 
           .query-submit:hover {
-            background-color: #ffffff;
             cursor: pointer;
+            background-color: #790417;
           }
 
           .button {
