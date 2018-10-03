@@ -6,8 +6,8 @@ Search Primo from within the main library website
 
 ## Getting started
 
-1.  Clone this repository
-2.  Run `npm install`
+1. Clone this repository
+2. Run `npm install`
 
 Build for production by running `npm run build`.
 
