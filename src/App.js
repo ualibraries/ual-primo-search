@@ -147,7 +147,7 @@ class App extends Component {
           <div className="other-search">
             <div className="other-search-col">
               <a
-                href="https://databases.library.arizona.edu"
+                href="https://libguides.library.arizona.edu/az.php"
                 className="button"
                 role="button"
                 id="ual-primo-search-see-all-databases"
