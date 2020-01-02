@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import config from '../app.config'
-import queryString from 'query-string'
 
 class App extends Component {
   state = {
@@ -11,7 +10,7 @@ class App extends Component {
 
   searchParams = () => {
     let params = {
-      query: `${this.state.searchType},${this.state.searchQuery}`,
+      query: this.state.searchType + ',' + encodeURIComponent(this.state.searchQuery),
       search_scope: 'Everything',
       tab: 'default_tab',
       lang: 'en_US',
@@ -25,13 +24,9 @@ class App extends Component {
     // Change the parameters based on the users choice of:
     // Keyword, Title, Author, Call number
     switch (this.state.searchType) {
-      // Title
-      case 'title,contains':
-        params['mode'] = 'advanced'
-        break
       // Author
       case 'creator,contains':
-        // Adding the `,AND` prevents Primo from discarding the text after a 
+        // Adding the `,AND` prevents Primo from discarding the text after a
         // comma in a search string containing a comma
         params.query += ',AND'
         params['mode'] = 'advanced'
@@ -40,7 +35,7 @@ class App extends Component {
       case 'lsr01,contains':
         params['mode'] = 'advanced'
         break
-      // Keyword (or anything else)
+      // Keyword, Title (or anything else)
       default:
         break
     }
